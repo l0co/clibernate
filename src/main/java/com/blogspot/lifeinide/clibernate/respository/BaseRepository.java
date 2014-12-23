@@ -1,12 +1,12 @@
 package com.blogspot.lifeinide.clibernate.respository;
 
 import com.blogspot.lifeinide.clibernate.model.BaseEnity;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 /**
  * Base for repositories.
@@ -47,8 +47,8 @@ public abstract class BaseRepository<T extends BaseEnity> implements IRepository
 	}
 
 	@Override
-	public List<T> findAll() {
-		return (List<T>) getSession().createQuery(String.format("from %s", clazz.getSimpleName())).list();
+	public Query findAll() {
+		return getSession().createQuery(String.format("from %s", clazz.getSimpleName()));
 	}
 
 }

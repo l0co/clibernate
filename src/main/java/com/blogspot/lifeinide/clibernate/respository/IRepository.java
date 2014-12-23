@@ -1,8 +1,7 @@
 package com.blogspot.lifeinide.clibernate.respository;
 
 import com.blogspot.lifeinide.clibernate.model.BaseEnity;
-
-import java.util.List;
+import org.hibernate.Query;
 
 /**
  * Base repository interface. Implement your own repositories using:
@@ -22,6 +21,6 @@ public interface IRepository<T extends BaseEnity> {
 
 	void delete(T object);
 
-	List<T> findAll();
+	Query findAll();
 
 }
