@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.blogspot.lifeinide</groupId>
-	<artifactId>cliberante</artifactId>
+	<artifactId>clibernate</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>

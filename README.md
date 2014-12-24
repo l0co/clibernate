@@ -8,4 +8,4 @@ working with embedded H2 database (the engine and hibernate dialect can be switc
 2. Create repository(s) derived from `BaseRepository`.
 3. Create command line service(s) derived from `BaseCliService`, parse command line options and perform action(s).
 4. Build with maven.
-5. Run with `java -jar cliberante-1.0-SNAPSHOT.jar [options] [service_name]`.
+5. Run with `java -jar clibernate-1.0-SNAPSHOT.jar [options] [service_name]`.
