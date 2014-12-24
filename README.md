@@ -1,7 +1,7 @@
 clibernate
 ==========
 
-Simple Spring+Hibernate application template supposed to test some ideas from command line. In default configuation
+Simple Spring+Hibernate application template supposed to test some ideas from command line. In default configuration
 working with embedded H2 database (the engine and hibernate dialect can be switched in `clibernate.properties`).
 
 1. Create model classes derived from `BaseEntity`.
