@@ -1,5 +1,6 @@
 package com.blogspot.lifeinide.clibernate.test;
 
+import com.blogspot.lifeinide.clibernate.respository.IRepository;
 import com.blogspot.lifeinide.clibernate.services.BaseCliService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,11 @@ import org.springframework.stereotype.Service;
 public class TestCliService extends BaseCliService {
 
 	@Autowired
-	protected TestRepository testRepository;
+	protected IRepository<TestEntity> testRepository;
 
 	@Override
 	public void main(String[] args) {
 		// TODOLF implement TestCliService.main
+		testRepository.findAll().list(); // TODOLF remove
 	}
 }
