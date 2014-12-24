@@ -1,5 +1,7 @@
 package com.blogspot.lifeinide.clibernate.services;
 
+import org.apache.commons.cli.ParseException;
+
 /**
  * Implemented by all command line services. Implement your own services in following way:
  * <pre>{@code
@@ -12,6 +14,6 @@ package com.blogspot.lifeinide.clibernate.services;
  */
 public interface ICliService {
 
-	public void main(String[] args);
+	public void main(String[] args) throws ParseException;
 
 }

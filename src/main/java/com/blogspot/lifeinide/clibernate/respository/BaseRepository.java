@@ -47,6 +47,11 @@ public abstract class BaseRepository<T extends BaseEnity> implements IRepository
 	}
 
 	@Override
+	public void deleteAll() {
+		getSession().createQuery(String.format("delete from %s", clazz.getSimpleName())).executeUpdate();
+	}
+
+	@Override
 	public Query findAll() {
 		return getSession().createQuery(String.format("from %s", clazz.getSimpleName()));
 	}

@@ -31,4 +31,10 @@ public class TestEntity extends BaseEnity {
 	public void setIntVal(int intVal) {
 		this.intVal = intVal;
 	}
+
+	@Override
+	protected String internalToString() {
+		return String.format("stringVal=%s, intVal=%s", stringVal, intVal);
+	}
+
 }

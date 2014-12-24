@@ -21,6 +21,8 @@ public interface IRepository<T extends BaseEnity> {
 
 	void delete(T object);
 
+	void deleteAll();
+
 	Query findAll();
 
 }

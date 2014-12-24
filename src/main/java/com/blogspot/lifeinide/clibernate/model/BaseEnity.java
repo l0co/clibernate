@@ -1,9 +1,6 @@
 package com.blogspot.lifeinide.clibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 /**
  * Base model class.
@@ -16,6 +13,7 @@ public class BaseEnity {
 	public static final String DISCRIMINATOR_COLUMN = "classname";
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	protected long id;
 
 	@Version
@@ -34,6 +32,17 @@ public class BaseEnity {
 
 	public String getClassname() {
 		return classname;
+	}
+
+	protected String internalToString() {
+		return "";
+	}
+
+	@Override
+	public String toString() {
+		String internalToString = internalToString();
+		return String.format("%s [id=%d%s]", getClass().getSimpleName(), getId(),
+			"".equals(internalToString) ? "" : ", "+internalToString);
 	}
 
 }
