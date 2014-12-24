@@ -1,6 +1,7 @@
 package com.blogspot.lifeinide.clibernate;
 
 import com.blogspot.lifeinide.clibernate.services.ICliService;
+import org.apache.commons.cli.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,12 +12,28 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Clibernate {
 
-	public static void main(String [] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+	public static final String APPLICATION_CONTEXT_XML = "applicationContext.xml";
 
-		// TODOLF remove
-		ICliService cliService = ctx.getBean("testCliService", ICliService.class);
-		cliService.main(args);
+	public static void main(String[] args) throws ParseException {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_XML);
+
+		Options options = new Options();
+		options.addOption("s", "service", true, "select service");
+
+		CommandLineParser parser = new PosixParser();
+		CommandLine cmd = parser.parse(options, args);
+
+		if (cmd.hasOption("s")) {
+
+		} else {
+			HelpFormatter helpFormatter = new HelpFormatter();
+			helpFormatter.printHelp("clibernate", options);
+
+			System.out.println("\navailable services:");
+			for (String beanName: ctx.getBeansOfType(ICliService.class).keySet()) {
+				System.out.println(" "+beanName);
+			}
+		}
 	}
 
 }
