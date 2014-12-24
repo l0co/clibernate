@@ -12,6 +12,6 @@ package com.blogspot.lifeinide.clibernate.services;
  */
 public interface ICliService {
 
-	public void main(String [] args);
+	public void main(String[] args);
 
 }

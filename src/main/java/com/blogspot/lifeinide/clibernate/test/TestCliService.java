@@ -16,7 +16,6 @@ public class TestCliService extends BaseCliService {
 
 	@Override
 	public void main(String[] args) {
-		// TODOLF implement TestCliService.main
-		testRepository.findAll().list(); // TODOLF remove
+		System.out.println("hello from cli service");
 	}
 }

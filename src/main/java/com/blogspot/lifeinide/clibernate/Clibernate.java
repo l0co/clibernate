@@ -25,7 +25,11 @@ public class Clibernate {
 
 		if (cmd.hasOption("s")) {
 
+			ICliService cliService = (ICliService) ctx.getBean(cmd.getOptionValue("s"));
+			cliService.main(args);
+
 		} else {
+
 			HelpFormatter helpFormatter = new HelpFormatter();
 			helpFormatter.printHelp("clibernate", options);
 
@@ -33,6 +37,7 @@ public class Clibernate {
 			for (String beanName: ctx.getBeansOfType(ICliService.class).keySet()) {
 				System.out.println(" "+beanName);
 			}
+
 		}
 	}
 
